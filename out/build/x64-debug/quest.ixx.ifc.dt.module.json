@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "quest.obj",
+            "outputs": [
+                "C:\\Users\\nieck\\source\\repos\\QuestBoard\\vc140.pdb",
+                "C:/Users/nieck/source/repos/QuestBoard/out/build/x64-debug\\quest.ixx.ifc.dt.module.json",
+                "C:\\Users\\nieck\\source\\repos\\QuestBoard\\out\\build\\x64-debug\\quest.ixx.ifc.dt.d.json",
+                "C:\\Users\\nieck\\source\\repos\\QuestBoard\\out\\build\\x64-debug\\quest.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "quest",
+                    "source-path": "c:\\users\\nieck\\source\\repos\\questboard\\questboard\\quest.ixx",
+                    "is-interface": true
+                }
+            ],
+            "requires": []
+        }
+    ]
+}
