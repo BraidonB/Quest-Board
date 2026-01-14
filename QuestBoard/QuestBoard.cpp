@@ -5,30 +5,31 @@
 #include "Quest.h"
 #include "Board.h"
 #include <iostream>
-
-using namespace std;
+#include <vector>
 
 int main()
 {
-	const std::string name1 = "A fair test";
-	const std::string description1 = "This test is only for the bravest of hearts to test their mettle(code).";
-	int priority1 = 5;
-	Quest quest1(name1, description1, priority1);
+	Board questBoard;
+	const std::string name = "A Fair Quest";
+	const std::string description = "This quest is a test for testing.";
+	const int id = 1;
+	const int priority = 5;
+	std::vector<Quest*> prereqs = {};
+	std::string dummyName = "Dummy quest";
+	std::string dummyDescription = "This is simply a dummy quest";
+	for (int i = 2; i < 5; ++i) {
+		Quest quest(i, dummyName, dummyDescription, 3);
+		questBoard.addQuest(quest);
+		prereqs.push_back(&quest);
+	}
+	Quest quest(id, name, description, priority, prereqs);
 
-	const std::string name2 = "A slightly fairer test";
-	const std::string description2 = "This test is of priority 2, and is a dependency of the fair test.";
-	int priority2 = 3;
-	Quest quest2(name2, description2, priority2);
+	questBoard.addQuest(quest);
 
-	const std::string name3 = "The most fair of tests";
-	const std::string description3 = "This test is the final dependency of A Fair Test.";
-	int priority3 = 1;
-	Quest quest3(name3, description3, priority3);
+	questBoard.printList(0);
+	questBoard.printList(1);
+	questBoard.printList(2);
+	questBoard.printList(3);
 
-	quest1.addPrerequisite(quest2);
-	quest1.addPrerequisite(quest3);
-
-	quest1.print();
-	//std::cout << quest1.name << ":\n" << quest1.priority << "\n\n" << quest1.description << std::endl;
 	return 0;
 }

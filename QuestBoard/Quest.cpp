@@ -1,12 +1,12 @@
 #include "Quest.h"
 
 #include <string>
-#include <string_view>
+#include <string>
 #include <vector>
 #include <iostream>
 
-Quest::Quest(std::string_view name, std::string_view description, int priority)
-	: id(5) /*TODO make unique id's*/, isCompleted(false), priority(priority), description(description), name(name)
+Quest::Quest(int id, std::string name, std::string description, int priority, std::vector<Quest*> prereqs)
+	: id{ id }, isCompleted{ false }, priority{ priority }, description{ description }, name{ name }, prerequisites{ std::move(prereqs) }
 {
 }
 
@@ -21,11 +21,11 @@ void Quest::print() {
 		<< "\n\nPrerequisites:\n";
 
 	for (auto prerequisite : prerequisites) {
-		std::cout << prerequisite.name << "\n";
+		std::cout << prerequisite->name << "\n";
 	}
 	std::cout << std::endl;
 }
 
-void Quest::addPrerequisite(Quest prerequisite) {
+void Quest::addPrerequisite(Quest* prerequisite) {
 	prerequisites.push_back(prerequisite);
 }

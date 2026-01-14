@@ -5,10 +5,19 @@
 
 class Board {
 public:
+	Board();
 
-private:
-	vector<Quest> available;
-	vector<Quest> unavailable;
-	vector<Quest> active;
-	vector<Quest> completed;
+	void addQuest(Quest quest);
+	void editQuest();
+	void completeQuest();
+	void reopenQuest();
+	void removeQuest();
+	void acceptQuest();
+
+	void printList(const int i);
+
+	std::vector<Quest> available;
+	std::vector<Quest> unavailable;
+	std::vector<Quest> active;
+	std::vector<Quest> completed;
 };
