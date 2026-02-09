@@ -6,7 +6,7 @@
 
 class Quest {
 public:
-	Quest(int id, std::string name, std::string description, int priority, QuestList prereqs = {});
+	Quest(int id, std::string name, std::string description, int priority, QuestList prereqs = QuestList());
 	int id;
 	bool isCompleted;
 	int priority;

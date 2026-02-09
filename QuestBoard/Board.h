@@ -7,7 +7,7 @@ class Board {
 public:
 	Board();
 
-	void addQuest(Quest& quest);
+	void addQuest(Quest* quest);
 	void editQuest();
 	void completeQuest();
 	void reopenQuest();

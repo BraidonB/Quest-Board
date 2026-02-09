@@ -31,11 +31,11 @@ int main()
 
 	Quest questb(idb, nameb, descriptionb, priorityb);
 
-	questBoard.addQuest(questc);
-	questBoard.addQuest(questa);
-	questBoard.addQuest(questb);
+	questBoard.addQuest(&questc);
+	questBoard.addQuest(&questa);
+	questBoard.addQuest(&questb);
 
-	//questBoard.printList(0);
+	questBoard.printList(0);
 
 	return 0;
 }

@@ -5,40 +5,29 @@
 #include <iostream>
 #include <string>
 
-#include "Quest.h"
+class Quest;
+//#include "Quest.h"
 
 class QuestList {
 public:
-	void push_back(Quest* quest) {
-		data.push_back(quest);
-	}
+	void push_back(Quest* quest);
 
-	Quest* removeQuest(const std::string name) {
-		return nullptr;
-	}
+	// TODO: Remove a quest from the data list.
+	//		 Maintain list order.
+	Quest* removeQuest(const std::string name);
 
-	void sortListAlph() {
-		std::sort(data.begin(), data.end(), sortByAlphabet);
-	}
+	bool empty() const;
 
-	void sortListPrio() {
-		std::sort(data.begin(), data.end(), sortByPriority);
-	}
+	void print() const;
 
-	void print() const {
-		for (const Quest* quest : data) {
-			std::cout << " - " << quest->name << "\n";
-		}
-	}
+	void sortListAlph();
 
-	using iterator = std::vector<Quest*>::iterator;
-	iterator begin() { return data.begin(); }
-	iterator end() { return data.end(); }
+	void sortListPrio();
+
+	using const_iterator = std::vector<Quest*>::const_iterator;
+	const_iterator begin() const ;
+	const_iterator end() const;
 
 private:
 	std::vector<Quest*> data;
-	bool sortByAlphabet(const Quest* q1, const Quest* q2) {
-		return q1->name < q2->name;
-	}
-	bool sortByPriority(const Quest* q1, const Quest* q2) { return q1->priority < q2->priority; }
 };

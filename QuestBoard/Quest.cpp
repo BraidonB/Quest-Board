@@ -5,7 +5,7 @@
 #include <iostream>
 
 Quest::Quest(int id, std::string name, std::string description, int priority, QuestList prereqs)
-	: id{ id }, isCompleted{ false }, priority{ priority }, description{ description }, name{ name }, prerequisites{ std::move(prereqs) }
+	: id{ id }, isCompleted{ false }, priority{ priority }, description{ description }, name{ name }, prerequisites{ prereqs }
 {
 }
 

@@ -3,11 +3,12 @@
 #include "QuestList.h"
 #include <string>
 #include <algorithm>
+#include <iostream>
 
-bool isAvailable(Quest& target) {
-	if (target.prerequisites.empty()) { return true; }
-	for (auto quest : target.prerequisites) {
-		if (!quest.isCompleted) {
+bool isAvailable(const Quest* target) {
+	if (target->prerequisites.empty()) { return true; }
+	for (const Quest* quest : target->prerequisites) {
+		if (!quest->isCompleted) {
 			return false;
 		}
 	}
@@ -16,7 +17,7 @@ bool isAvailable(Quest& target) {
 
 Board::Board() {}
 
-void Board::addQuest(Quest& quest) {
+void Board::addQuest(Quest* quest) {
 	if (isAvailable(quest)) {
 		available.push_back(quest);
 		available.sortListAlph();
