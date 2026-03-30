@@ -6,7 +6,7 @@
 
 class Quest {
 public:
-	Quest(int id, std::string name, std::string description, int priority, QuestList prereqs = QuestList());
+	Quest(int id, const std::string& name, const std::string& description, int priority, const QuestList& prereqs = QuestList());
 	int id;
 	bool isCompleted;
 	int priority;
@@ -15,6 +15,6 @@ public:
 	QuestList prerequisites;
 
 	void setComplete();
-	void print();
-	void addPrerequisite(Quest* prerequisite);
+	void print() const;
+	void addPrerequisite(const Quest& prerequisite);
 };

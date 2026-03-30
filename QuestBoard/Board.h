@@ -7,7 +7,7 @@ class Board {
 public:
 	Board();
 
-	void addQuest(Quest* quest);
+	void addQuest(const Quest& quest);
 	void editQuest();
 	void completeQuest();
 	void reopenQuest();
@@ -15,6 +15,7 @@ public:
 
 	void printList(const int i);
 
+private:
 	QuestList available;
 	QuestList unavailable;
 	QuestList active;

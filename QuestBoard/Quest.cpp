@@ -4,25 +4,26 @@
 #include "QuestList.h"
 #include <iostream>
 
-Quest::Quest(int id, std::string name, std::string description, int priority, QuestList prereqs)
+Quest::Quest(int id, const std::string& name, const std::string& description, int priority, const QuestList& prereqs)
 	: id{ id }, isCompleted{ false }, priority{ priority }, description{ description }, name{ name }, prerequisites{ prereqs }
 {
+
 }
 
 void Quest::setComplete() {
 	isCompleted = true;
 }
 
-void Quest::print() {
-	std::cout << "<< " << name << " >>\n"
-		<< "Priority: " << priority
-		<< "\n\n" << description
-		<< "\n\nPrerequisites:\n";
+void Quest::print() const {
+	std::cout << "  --== " << name << " ==--\n"
+		<< "  Priority: " << priority
+		<< "\n\n  " << description
+		<< "\n\n  Prerequisites:\n  ";
 
 	prerequisites.print();
 	std::cout << std::endl;
 }
 
-void Quest::addPrerequisite(Quest* prerequisite) {
+void Quest::addPrerequisite(const Quest& prerequisite) {
 	prerequisites.push_back(prerequisite);
 }
